@@ -26,6 +26,8 @@
           "mas"
           "eza"
           "htop"
+          "cmake"
+          "protobuf"
         ];
         casks = [
           "chromium"
