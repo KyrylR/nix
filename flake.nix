@@ -28,6 +28,7 @@
           "htop"
           "cmake"
           "protobuf"
+	  "golang"
         ];
         casks = [
           "chromium"
