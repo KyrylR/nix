@@ -17,6 +17,7 @@
         [
           pkgs.neovim
           pkgs.tmux
+          pkgs.texliveFull
         ];
 
       # List services that you want to enable:
@@ -28,7 +29,7 @@
           "htop"
           "cmake"
           "protobuf"
-	  "golang"
+	      "golang"
         ];
         casks = [
           "chromium"
