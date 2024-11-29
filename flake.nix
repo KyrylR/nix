@@ -18,6 +18,7 @@
           pkgs.neovim
           pkgs.tmux
           pkgs.texliveFull
+          pkgs.bun
         ];
 
       # List services that you want to enable:
