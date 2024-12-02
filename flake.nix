@@ -19,6 +19,7 @@
           pkgs.tmux
           pkgs.texliveFull
           pkgs.bun
+          pkgs.kubo
         ];
 
       # List services that you want to enable:
