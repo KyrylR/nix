@@ -20,6 +20,7 @@
           pkgs.texliveFull
           pkgs.bun
           pkgs.kubo
+          pkgs.tldr
         ];
 
       # List services that you want to enable:
