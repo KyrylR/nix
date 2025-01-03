@@ -21,6 +21,7 @@
           pkgs.bun
           pkgs.kubo
           pkgs.tldr
+          pkgs.wget
         ];
 
       # List services that you want to enable:
