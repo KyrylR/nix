@@ -14,14 +14,15 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [
-          pkgs.neovim
-          pkgs.tmux
-          pkgs.texliveFull
-          pkgs.bun
-          pkgs.kubo
-          pkgs.tldr
-          pkgs.wget
+        with pkgs; [
+          neovim
+          tmux
+          texliveFull
+          bun
+          kubo
+          tldr
+          wget
+          dust
         ];
 
       # List services that you want to enable:
