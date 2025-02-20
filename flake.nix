@@ -44,7 +44,6 @@
           "cmake"
           "protobuf"
 	      "golang"
-	      "python@3.10"
         ];
         casks = [
           "chromium"
@@ -190,17 +189,10 @@
 
                     # Go
                     export PATH="$PATH:$HOME/go/bin"
-
-                    # conda
-                    export CONDA_ROOT="$HOME/miniconda3"
-                    export PATH="$CONDA_ROOT/bin:$PATH"
-
-                    export PATH="$(brew --prefix)/opt/python@3.10/libexec/bin:$PATH"
                   '';
 
                   # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
                   initExtra = ''
-                    eval "$(conda shell.zsh hook)"
                   '';
                 };
               };
