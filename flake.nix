@@ -32,6 +32,8 @@
           wget
           dust
           bat
+          tree
+          ninja
         ];
 
       # List services that you want to enable:
@@ -44,6 +46,8 @@
           "cmake"
           "protobuf"
 	      "golang"
+	      "llvm"
+	      "lld"
         ];
         casks = [
           "chromium"
@@ -156,6 +160,7 @@
                     ls    = "eza --git";
                     please = "sudo";
                     sc    = "ssh root@192.168.1.245";
+                    rc    = "cargo fmt --all && cargo clippy --all-features --fix --allow-dirty --allow-staged -- --deny clippy::all";
                   };
 
                   sessionVariables = {
@@ -189,6 +194,13 @@
 
                     # Go
                     export PATH="$PATH:$HOME/go/bin"
+
+                    export GOPRIVATE=github.com/openioncom/*
+
+                    export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+                    export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+                    export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
                   '';
 
                   # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
