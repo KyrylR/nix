@@ -176,6 +176,7 @@
                     # Source other environment scripts
                     . "$HOME/Library/Application Support/org.dfinity.dfx/env"
                     . "$HOME/.cargo/env"
+                    . "$HOME/.keystore/env"
 
                     # Extend PATH
                     export PATH="$PATH:.cargo/bin"
