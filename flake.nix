@@ -202,6 +202,8 @@
 
                     export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
                     export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+                    export PATH="/Users/kyrylr/.local/share/solana/install/active_release/bin:$PATH"
                   '';
 
                   # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
