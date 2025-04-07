@@ -48,6 +48,7 @@
 	      "golang"
 	      "llvm"
 	      "lld"
+	      "binutils"
         ];
         casks = [
           "chromium"
