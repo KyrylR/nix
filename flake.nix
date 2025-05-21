@@ -208,6 +208,8 @@
 
                     export PATH="/Users/kyrylr/.local/share/solana/install/active_release/bin:$PATH"
                     export PATH="/Users/kyrylr/.local/bin:$PATH"
+
+                    export COREPACK_ENABLE_AUTO_PIN=0
                   '';
 
                   # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
