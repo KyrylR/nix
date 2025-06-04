@@ -66,6 +66,9 @@
 #          "jetbrains-toolbox"
 #          "godot"
           "telegram-desktop"
+          "spotify"
+          "discord"
+          "zoom"
         ];
         masApps = {};
         onActivation.cleanup = "zap";
