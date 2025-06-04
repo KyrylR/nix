@@ -57,6 +57,10 @@
           "ngrok"
           "sage"
           "ghostty"
+          "slack"
+#          "jetbrains-toolbox"
+#          "godot"
+          "telegram-desktop"
         ];
         masApps = {};
         onActivation.cleanup = "zap";
@@ -122,7 +126,7 @@
             nix-homebrew = {
               enable = true;
               enableRosetta = true;
-              user = "kyrylr";
+              user = "inter";
               autoMigrate = true;
             };
           }
@@ -133,10 +137,10 @@
             useUserPackages = true;
 
             users = {
-              kyrylr = { lib, pkgs, ... }: {
+              inter = { lib, pkgs, ... }: {
                 home = {
                   stateVersion = lib.mkForce "24.11";
-                  homeDirectory = lib.mkForce "/Users/kyrylr";
+                  homeDirectory = lib.mkForce "/Users/inter";
                 };
 
                 programs.zsh = {
@@ -171,7 +175,7 @@
                     BUN_INSTALL  = "$HOME/.bun";
                     PNPM_HOME    = "$HOME/Library/pnpm";
                     SCR          = "root@192.168.1.245";
-                    ANDROID_NDK  = "/Users/kyrylr/Library/Android/sdk/ndk/23.1.7779620";
+                    ANDROID_NDK  = "/Users/inter/Library/Android/sdk/ndk/23.1.7779620";
                   };
 
                   # Extra lines appended to `.zshenv` (executed by every new shell).
@@ -184,7 +188,7 @@
                     # Extend PATH
                     export PATH="$PATH:.cargo/bin"
                     export PATH="$PATH:$BUN_INSTALL/bin"
-                    export PATH="$PATH:/Users/kyrylr/.foundry/bin"
+                    export PATH="$PATH:/Users/inter/.foundry/bin"
 
                     # Java
                     export JAVA_HOME=$(/usr/libexec/java_home)
@@ -206,8 +210,8 @@
                     export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
                     export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-                    export PATH="/Users/kyrylr/.local/share/solana/install/active_release/bin:$PATH"
-                    export PATH="/Users/kyrylr/.local/bin:$PATH"
+                    export PATH="/Users/inter/.local/share/solana/install/active_release/bin:$PATH"
+                    export PATH="/Users/inter/.local/bin:$PATH"
 
                     export COREPACK_ENABLE_AUTO_PIN=0
                   '';
