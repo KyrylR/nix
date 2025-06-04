@@ -51,6 +51,11 @@
 	      "binutils"
 	      "uv"
 	      "pipx"
+	      "rustup"
+	      "foundry"
+	      "openjdk"
+	      "oven-sh/bun/bun"
+	      "nvm"
         ];
         casks = [
           "chromium"
@@ -166,7 +171,6 @@
                     lla   = "eza -lhba --git";
                     ls    = "eza --git";
                     please = "sudo";
-                    sc    = "ssh root@192.168.1.245";
                     rc    = "cargo fmt --all && cargo clippy --all-features --fix --allow-dirty --allow-staged -- --deny clippy::all";
                   };
 
@@ -181,7 +185,6 @@
                   # Extra lines appended to `.zshenv` (executed by every new shell).
                   envExtra = ''
                     # Source other environment scripts
-                    . "$HOME/Library/Application Support/org.dfinity.dfx/env"
                     . "$HOME/.cargo/env"
                     . "$HOME/.keystore/env"
 
@@ -191,8 +194,8 @@
                     export PATH="$PATH:/Users/inter/.foundry/bin"
 
                     # Java
-                    export JAVA_HOME=$(/usr/libexec/java_home)
-                    export PATH="$JAVA_HOME/bin:$PATH"
+                    export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+                    export JAVA_HOME="/opt/homebrew/opt/openjdk"
 
                     # Add pnpm to PATH if not present
                     case ":$PATH:" in
@@ -218,6 +221,13 @@
 
                   # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
                   initExtra = ''
+                  if command -v rustup &> /dev/null; then
+                    export PATH="$PATH:$HOME/.cargo/bin"
+                    source "$HOME/.cargo/env" 2>/dev/null || true
+                  fi
+
+                  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+                  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
                   '';
                 };
               };
