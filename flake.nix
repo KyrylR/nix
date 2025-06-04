@@ -69,6 +69,7 @@
           "spotify"
           "discord"
           "zoom"
+          "signal"
         ];
         masApps = {};
         onActivation.cleanup = "zap";
