@@ -56,6 +56,7 @@
 	      "openjdk"
 	      "oven-sh/bun/bun"
 	      "nvm"
+	      "emscripten"
         ];
         casks = [
           "chromium"
