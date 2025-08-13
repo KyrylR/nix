@@ -2,9 +2,9 @@
   description = "Somebody Darwin system flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nix-darwin.url = "github:LnL7/nix-darwin/nix-darwin-24.11";
+    nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
@@ -12,7 +12,7 @@
     nix-homebrew.inputs.nix-darwin.follows = "nix-darwin";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -34,6 +34,7 @@
           bat
           tree
           ninja
+          grpcurl
         ];
 
       # List services that you want to enable:
@@ -57,6 +58,11 @@
 	      "oven-sh/bun/bun"
 	      "nvm"
 	      "emscripten"
+	      "yt-dlp"
+	      "sui"
+	      "ffmpeg"
+	      "solc-select"
+	      "ollama"
         ];
         casks = [
           "chromium"
@@ -64,8 +70,6 @@
           "sage"
           "ghostty"
           "slack"
-#          "jetbrains-toolbox"
-#          "godot"
           "telegram-desktop"
           "spotify"
           "discord"
@@ -77,7 +81,7 @@
       };
 
       fonts.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+        pkgs.nerd-fonts.jetbrains-mono
       ];
 
       system.activationScripts.applications.text = let
@@ -100,6 +104,8 @@
           done
         '';
 
+      system.primaryUser = "inter";
+
       system.defaults = {
         dock.autohide = true;
         finder.FXPreferredViewStyle = "clmv";
@@ -108,10 +114,6 @@
         NSGlobalDomain.AppleInterfaceStyle = "Dark";
         NSGlobalDomain.KeyRepeat = 2;
       };
-
-      # Auto upgrade nix package and the daemon service.
-      services.nix-daemon.enable = true;
-      # nix.package = pkgs.nix;
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
@@ -224,8 +226,7 @@
                     export COREPACK_ENABLE_AUTO_PIN=0
                   '';
 
-                  # Extra lines appended to `.zshrc` (run after oh-my-zsh initialization).
-                  initExtra = ''
+                  initContent = ''
                   if command -v rustup &> /dev/null; then
                     export PATH="$PATH:$HOME/.cargo/bin"
                     source "$HOME/.cargo/env" 2>/dev/null || true
@@ -233,6 +234,16 @@
 
                   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
                   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+                  MYNAME="inter"
+                  git_branch() {
+                    branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+                    if [[ -n $branch ]]; then
+                      echo "%F{magenta}($branch)%f"
+                    fi
+                  }
+
+                  PROMPT='%F{cyan}'$MYNAME'%f %F{yellow}%1~%f $(git_branch) %(?.%F{green}✔%f.%F{red}✘%f) '
                   '';
                 };
               };
