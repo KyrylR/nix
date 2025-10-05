@@ -63,6 +63,7 @@
 	      "ffmpeg"
 	      "solc-select"
 	      "ollama"
+	      "git-filter-repo"
         ];
         casks = [
           "chromium"
