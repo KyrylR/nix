@@ -34,6 +34,7 @@
           bat
           tree
           ninja
+          biber
           grpcurl
         ];
 
@@ -47,7 +48,6 @@
           "cmake"
           "protobuf"
 	      "golang"
-	      "llvm"
 	      "lld"
 	      "binutils"
 	      "uv"
@@ -59,11 +59,16 @@
 	      "nvm"
 	      "emscripten"
 	      "yt-dlp"
-	      "sui"
 	      "ffmpeg"
-	      "solc-select"
-	      "ollama"
 	      "git-filter-repo"
+	      "cocoapods"
+	      "virtualenv"
+	      "gnu-getopt"
+	      "gnu-sed"
+	      "autoconf"
+	      "automake"
+	      "libtool"
+	      "swig"
         ];
         casks = [
           "chromium"
@@ -76,6 +81,7 @@
           "discord"
           "zoom"
           "signal"
+          "temurin@17"
         ];
         masApps = {};
         onActivation.cleanup = "zap";
@@ -179,7 +185,7 @@
                     lla   = "eza -lhba --git";
                     ls    = "eza --git";
                     please = "sudo";
-                    rc    = "cargo fmt --all && cargo clippy --all-features --fix --allow-dirty --allow-staged -- --deny clippy::all";
+                    rc    = "cargo fmt --all && cargo clippy --all-targets --all-features --fix --allow-dirty --allow-staged -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::nursery -D clippy::cargo -A clippy::multiple_crate_versions";
                   };
 
                   sessionVariables = {
@@ -188,6 +194,7 @@
                     PNPM_HOME    = "$HOME/Library/pnpm";
                     SCR          = "root@192.168.1.245";
                     ANDROID_NDK  = "/Users/inter/Library/Android/sdk/ndk/23.1.7779620";
+                    JAVA_HOME    = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home";
                   };
 
                   # Extra lines appended to `.zshenv` (executed by every new shell).
@@ -203,7 +210,7 @@
 
                     # Java
                     export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-                    export JAVA_HOME="/opt/homebrew/opt/openjdk"
+                    export PATH="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin:$PATH"
 
                     # Add pnpm to PATH if not present
                     case ":$PATH:" in
