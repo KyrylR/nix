@@ -69,6 +69,7 @@
 	      "automake"
 	      "libtool"
 	      "swig"
+	      "just"
         ];
         casks = [
           "chromium"
