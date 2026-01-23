@@ -70,6 +70,7 @@
 	      "libtool"
 	      "swig"
 	      "just"
+	      "coreutils"
         ];
         casks = [
           "chromium"
