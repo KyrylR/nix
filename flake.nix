@@ -188,6 +188,7 @@
                     ls    = "eza --git";
                     please = "sudo";
                     rc    = "cargo fmt --all && cargo clippy --all-targets --all-features --fix --allow-dirty --allow-staged -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::nursery -D clippy::cargo -A clippy::multiple_crate_versions";
+                    rc-read = "cargo fmt --all -- --check && cargo clippy --all-targets --all-features -- -D warnings -D clippy::all -D clippy::pedantic -D clippy::nursery -D clippy::cargo -A clippy::multiple_crate_versions";
                   };
 
                   sessionVariables = {
