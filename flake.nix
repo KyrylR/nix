@@ -63,14 +63,15 @@
 	      "git-filter-repo"
 	      "cocoapods"
 	      "virtualenv"
-	      "gnu-getopt"
-	      "gnu-sed"
-	      "autoconf"
-	      "automake"
-	      "libtool"
-	      "swig"
+#	      "gnu-getopt"
+#	      "gnu-sed"
+#	      "autoconf"
+#	      "automake"
+#	      "libtool"
+#	      "swig"
 	      "just"
 	      "coreutils"
+	      "gh"
         ];
         casks = [
           "chromium"
@@ -97,7 +98,7 @@
         env = pkgs.buildEnv {
           name = "system-applications";
           paths = config.environment.systemPackages;
-          pathsToLink = "/Applications";
+          pathsToLink = [ "/Applications" ];
         };
       in
         pkgs.lib.mkForce ''
@@ -235,6 +236,8 @@
                     export PATH="/Users/inter/.local/bin:$PATH"
 
                     export COREPACK_ENABLE_AUTO_PIN=0
+
+                    export PATH="/Users/inter/chrome-for-testing:$PATH"
                   '';
 
                   initContent = ''
