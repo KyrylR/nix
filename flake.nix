@@ -36,6 +36,7 @@
           ninja
           biber
           grpcurl
+          ripgrep
         ];
 
       # List services that you want to enable:
@@ -72,11 +73,11 @@
 	      "just"
 	      "coreutils"
 	      "gh"
+	      "glab"
+	      "pkgconf"
         ];
         casks = [
           "chromium"
-          "ngrok"
-          "sage"
           "ghostty"
           "slack"
           "telegram-desktop"
@@ -85,6 +86,7 @@
           "zoom"
           "signal"
           "temurin@17"
+          "android-platform-tools"
         ];
         masApps = {};
         onActivation.cleanup = "zap";
@@ -193,12 +195,15 @@
                   };
 
                   sessionVariables = {
-                    NVM_DIR      = "$HOME/.nvm";
-                    BUN_INSTALL  = "$HOME/.bun";
-                    PNPM_HOME    = "$HOME/Library/pnpm";
-                    SCR          = "root@192.168.1.245";
-                    ANDROID_NDK  = "/Users/inter/Library/Android/sdk/ndk/23.1.7779620";
-                    JAVA_HOME    = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home";
+                    NVM_DIR             = "$HOME/.nvm";
+                    BUN_INSTALL         = "$HOME/.bun";
+                    PNPM_HOME           = "$HOME/Library/pnpm";
+                    SCR                 = "root@192.168.1.245";
+                    ANDROID_NDK         = "/Users/inter/Library/Android/sdk/ndk/23.1.7779620";
+                    JAVA_HOME           = "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home";
+                    ELEMENTSD_EXEC      = "/usr/local/bin/elementsd";
+                    ELECTRS_LIQUID_EXEC = "/Users/inter/Desktop/Simpl/electrs/target/release/electrs";
+                    WATERFALLS_EXEC     = "/Users/inter/Desktop/Simpl/waterfalls/target/release/waterfalls";
                   };
 
                   # Extra lines appended to `.zshenv` (executed by every new shell).
